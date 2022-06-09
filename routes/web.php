@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", "as" => "admin.", "middleware" => "auth:web"], function () {
+    Route::get('/', 'AdminController@index')->name('dashboard');
 
-
+    Route::resource('quizzes', 'QuizController')->names('quizzes');
+    Route::resource('languages', 'LanguageController')->names('languages');
 });

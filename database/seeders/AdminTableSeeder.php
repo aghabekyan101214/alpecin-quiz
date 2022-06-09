@@ -17,7 +17,7 @@ class AdminTableSeeder extends Seeder
     {
         return \App\Models\User::create([
             'name' => "Admin",
-            'email' => "artsruntorosyan@gmail.com",
+            'email' => "admin@admin.com",
             'password' => Hash::make(env("ADMIN_PASS")),
             'role' => User::ROLE_ADMIN
         ]);
