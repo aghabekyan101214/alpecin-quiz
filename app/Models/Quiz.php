@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Quiz extends Model
 {
     use HasFactory;
+
+    public function translations()
+    {
+        return $this->hasMany(QuizzesLanguage::class, "quiz_id", "id");
+    }
 }

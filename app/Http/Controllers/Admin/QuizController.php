@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreQuizRequest;
+use App\Models\Language;
 use App\Models\Quiz;
+use App\Models\QuizzesLanguage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuizController extends Controller
 {
@@ -15,7 +19,8 @@ class QuizController extends Controller
      */
     public function index()
     {
-        dd('s');
+        $data = Quiz::with('translations')->get();
+        return view('admin.quizzes.index', compact('data'));
     }
 
     /**
@@ -25,7 +30,8 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        $languages = Language::all();
+        return view('admin.quizzes.create', compact('languages'));
     }
 
     /**
@@ -34,9 +40,19 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreQuizRequest $request)
     {
-        //
+        DB::beginTransaction();
+
+        $quiz = new Quiz();
+        $quiz->save();
+
+        $quiz->translations()->createMany($request->data);
+
+        DB::commit();
+
+        session()->flash('create-message', 'Resource has been created successfully.');
+        return redirect(route('admin.quizzes.index'));
     }
 
     /**
@@ -47,7 +63,7 @@ class QuizController extends Controller
      */
     public function show(Quiz $quiz)
     {
-        //
+
     }
 
     /**
@@ -58,7 +74,9 @@ class QuizController extends Controller
      */
     public function edit(Quiz $quiz)
     {
-        //
+        $languages = Language::all();
+        $data = $quiz;
+        return view('admin.quizzes.create', compact('languages', 'data'));
     }
 
     /**
@@ -68,9 +86,22 @@ class QuizController extends Controller
      * @param  \App\Models\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Quiz $quiz)
+    public function update(StoreQuizRequest $request, Quiz $quiz)
     {
-        //
+        DB::beginTransaction();
+
+        foreach ($request->data as $d) {
+            if($quiz->translations()->where('language_id', $d["language_id"])->exists()) {
+                $quiz->translations()->where('language_id', $d["language_id"])->update($d);
+            } else {
+                $quiz->translations()->createMany([$d]);
+            }
+        }
+
+        session()->flash('update-message', 'Resource has been updated successfully.');
+        DB::commit();
+
+        return redirect(route('admin.quizzes.index'));
     }
 
     /**
@@ -81,6 +112,8 @@ class QuizController extends Controller
      */
     public function destroy(Quiz $quiz)
     {
-        //
+        $quiz->delete();
+        session()->flash('delete-message', 'Resource has been updated successfully.');
+        return redirect(route('admin.quizzes.index'));
     }
 }

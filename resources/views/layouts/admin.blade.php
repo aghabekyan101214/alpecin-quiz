@@ -114,6 +114,13 @@
                             </a>
                         </li>
 
+                        <li class="kt-menu__item" aria-haspopup="true">
+                            <a href="{{ route('admin.quizzes.index') }}" class="kt-menu__link ">
+                                <i class="kt-menu__link-icon flaticon-book"></i>
+                                <span class="kt-menu__link-text">Quizzes</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

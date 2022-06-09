@@ -93,7 +93,7 @@ class LanguageController extends Controller
         }
         $language->save();
 
-        session()->flash('create-message', 'Resource has been updated successfully.');
+        session()->flash('update-message', 'Resource has been updated successfully.');
         return redirect(route('admin.languages.index'));
     }
 
