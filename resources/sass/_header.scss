@@ -1,0 +1,217 @@
+header {
+    position: relative;
+    z-index: 11;
+    .wrapper {
+        padding: 24px 40px;
+    }
+    .head__left {
+        width: calc(50% - 85px);
+        .burger_menu {
+            position: relative;
+            z-index: 10;
+            a {
+                display: block;
+                span {
+                    display: block;
+                    background-color: $black;
+                    width: 18px;
+                    height: 1px;
+                    &:not(:last-of-type) {
+                        margin-bottom: 7px;
+                    }
+                }
+                &.active {
+                    span {
+                        position: relative;
+                        &:first-child {
+                            animation-name: firstBurgerLine;
+                            animation-fill-mode: both;
+                            animation-duration: .3s;
+                        }
+                        &:nth-child(2) {
+                            animation-name: secondBurgerLine;
+                            animation-fill-mode: both;
+                            animation-duration: .3s;
+                        }
+                        &:last-child {
+                            animation-name: lastBurgerLine;
+                            animation-fill-mode: both;
+                            animation-duration: .3s;
+                        }
+                    }
+                }
+            }
+        }
+        .logo {
+            display: none;
+        }
+    }
+    .logo {
+        width: 170px;
+        position: relative;
+        z-index: 10;
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+    .head__right {
+        position: relative;
+        z-index: 10;
+        width: calc(50% - 85px);
+        justify-content: flex-end;
+        ul {
+            li {
+                position: relative;
+                padding: 0 9px;
+                & > a {
+                    display: flex;
+                    align-items: flex-end;
+                    color: rgba(0,0,0,.5);
+                    font-weight: 500;
+                    img {
+                        display: block;
+                        width: 22px;
+                    }
+                    .count {
+                        display: inline-block;
+                        color: $black;
+                        font-size: 12px;
+                        line-height: 10px;
+                        font-weight: 400;
+                        margin-left: 3px;
+                        margin-top: 6px;
+                    }
+                    &.basket_open_btn {
+                        img {
+                            width: 18px;
+                        }
+                    }
+                    &.active {
+                        color: #000;
+                    }
+                }
+                & > .hover-block {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    z-index: 20;
+                    padding: 20px;
+                    min-width: 300px;
+                    background-color: #fff;
+                    box-shadow: 0 0 10px #00000029;
+                    font-size: 14px;
+                    color: #000;
+                    font-weight: 500;
+                    & > a {
+                        text-decoration: underline;
+                        color: $black;
+                        font-weight: 500;
+                        transition: all .3s ease;
+                        &:hover {
+                            color: $text_hover;
+                        }
+                    }
+                }
+                .user_logedIn {
+                    box-shadow: none;
+                    padding: 0;
+                    &__top {
+                        padding: 20px;
+                        box-shadow: 0 0 10px #00000029;
+                        .user_name {
+                            font-size: 14px;
+                            color: $black;
+                            font-weight: 500;
+                        }
+                        .sign_out_btn {
+                            display: inline-block;
+                            font-size: 14px;
+                            color: $black;
+                            font-weight: 500;
+                            text-decoration: underline;
+                            padding: 0;
+                            border: none;
+                            background: none;
+                            cursor: pointer;
+                        }
+                    }
+                    ul {
+                        padding: 20px;
+                        box-shadow: 0 3px 6px #00000029;
+                        li {
+                            display: block;
+                            padding: 0;
+                            a {
+                                font-size: 14px;
+                                color: $black;
+                                font-weight: 500;
+                                transition: all .3s ease;
+                                &:hover {
+                                    margin-left: 10px;
+                                }
+                            }
+                            &:not(:last-of-type) {
+                                margin-bottom: 20px;
+                            }
+                        }
+                    }
+                }
+                &:hover {
+                    & > .hover-block {
+                        display: block;
+                    }
+                }
+                &.language {
+                    padding: 0;
+                    margin-left: 9px;
+                    font-size: 14px;
+                    color: #000;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+@keyframes firstBurgerLine {
+    0% {
+        top: 0;
+        transform: rotate(0);
+    }
+    70% {
+        top: 8px;
+        transform: rotate(0);
+    }
+    100% {
+        top: 8px;
+        transform: rotate(45deg);
+    }
+}
+@keyframes lastBurgerLine {
+    0% {
+        top: 0;
+        transform: rotate(0);
+    }
+    70% {
+        top: -8px;
+        transform: rotate(0);
+    }
+    100% {
+        top: -8px;
+        transform: rotate(-45deg);
+    }
+}
+@keyframes secondBurgerLine {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

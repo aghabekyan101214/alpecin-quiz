@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 156 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g id="Rounded-Rectangle-2" serif:id="Rounded Rectangle 2" transform="matrix(4.06454,0,0,4.06454,-11099.4,-275.926)">
+        <path d="M2737,78L2764,78C2765.11,78 2766,79.045 2766,80.333L2767,103.667C2767,104.955 2766.11,106 2765,106L2736,106C2734.89,106 2734,104.955 2734,103.667L2735,80.333C2735,79.045 2735.9,78 2737,78ZM2765.54,103.686L2764.54,80.365L2764.54,80.333C2764.54,79.903 2764.37,79.46 2764,79.46L2737,79.46C2736.63,79.46 2736.46,79.903 2736.46,80.365L2735.46,103.686C2735.47,104.111 2735.64,104.54 2736,104.54L2765,104.54C2765.36,104.54 2765.53,104.111 2765.54,103.686Z"/>
+    </g>
+    <g id="Ellipse-2" serif:id="Ellipse 2" transform="matrix(4.06454,0,0,4.06454,-11099.4,-275.926)">
+        <path d="M2742,77.5C2742,72.806 2745.81,69 2750.5,69C2755.2,69 2759,72.806 2759,77.5" style="fill:none;stroke:black;stroke-width:1.46px;"/>
+    </g>
+</svg>

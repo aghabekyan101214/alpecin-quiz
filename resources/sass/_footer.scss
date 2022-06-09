@@ -1,0 +1,43 @@
+footer {
+  border-top: 1px solid #BCBCBC;
+  text-align: center;
+  .wrapper {
+    padding: 20px 40px;
+  }
+  small {
+    display: block;
+    font-size: 20px;
+    line-height: 26px;
+    color: $text_hover;
+    margin-bottom: 28px;
+  }
+  .social_links {
+    margin-bottom: 28px;
+    li {
+      margin: 0 12px;
+        a {
+            transition: all .3s ease;
+            &:hover {
+                opacity: .6;
+            }
+        }
+    }
+  }
+  .foo_menu {
+    li {
+      margin: 0 15px;
+      a {
+        font-size: 20px;
+        line-height: 24px;
+        color: $text_hover;
+        transition: all .3s ease;
+        &:hover {
+          color: $black;
+        }
+      }
+      &:not(:last-of-type) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
