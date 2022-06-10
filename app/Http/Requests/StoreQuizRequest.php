@@ -20,6 +20,19 @@ class StoreQuizRequest extends FormRequest
         return true;
     }
 
+    private function get_quiz_language_query($name)
+    {
+        return QuizzesLanguage::where('name', $name);
+    }
+
+    private function throw_error($key, $err)
+    {
+        $error = \Illuminate\Validation\ValidationException::withMessages([
+            $key => $err
+        ]);
+        throw $error;
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,23 +43,20 @@ class StoreQuizRequest extends FormRequest
         $lang_count = Language::all()->count();
 
         $names = Arr::pluck($request->data, 'name');
+
         if ($request->method == "PUT") {
             foreach ($names as $bin => $name) {
-                if(QuizzesLanguage::where('quiz_id', '!=', $request->route()->quiz->id)->where('name', $name)->exists()) {
-                    $error = \Illuminate\Validation\ValidationException::withMessages([
-                        "data.$bin.name" => "This field should be unique"
-                    ]);
-                    throw $error;
+                $query = $this->get_quiz_language_query($name);
+                if($query->where('quiz_id', '!=', $request->route()->quiz->id)->exists()) {
+                    $this->throw_error("data.$bin.name", "This field should be unique");
                 }
             }
 
         } else {
             foreach ($names as $bin => $name) {
-                if(QuizzesLanguage::where('name', $name)->exists()) {
-                    $error = \Illuminate\Validation\ValidationException::withMessages([
-                        "data.$bin.name" => "This field should be unique"
-                    ]);
-                    throw $error;
+                $query = $this->get_quiz_language_query($name);
+                if($query->exists()) {
+                    $this->throw_error("data.$bin.name", "This field should be unique");
                 }
             }
         }

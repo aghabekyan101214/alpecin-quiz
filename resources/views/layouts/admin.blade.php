@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8" />
-    <title rel="nofollow">Studio Zard Admin</title>
+    <title rel="nofollow">Alpecin Admin</title>
     <meta name="description" content="User login example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -118,6 +118,13 @@
                             <a href="{{ route('admin.quizzes.index') }}" class="kt-menu__link ">
                                 <i class="kt-menu__link-icon flaticon-book"></i>
                                 <span class="kt-menu__link-text">Quizzes</span>
+                            </a>
+                        </li>
+
+                        <li class="kt-menu__item" aria-haspopup="true">
+                            <a href="{{ route('admin.quizzes_questions.index') }}" class="kt-menu__link ">
+                                <i class="kt-menu__link-icon flaticon-questions-circular-button"></i>
+                                <span class="kt-menu__link-text">Quizzes Questions</span>
                             </a>
                         </li>
 
