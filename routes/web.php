@@ -23,4 +23,5 @@ Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", 
     Route::resource('quizzes-questions', 'QuizzesQuestionController')->names('quizzes_questions');
     Route::post('quizzes-questions-sort', 'QuizzesQuestionController@sort')->name('quizzes_questions_sor');
     Route::resource('quizzes-questions-answers', 'QuizzesQuestionsAnswerController')->names('quizzes_questions_answers');
+    Route::resource('products', 'ProductController')->names('products');
 });
