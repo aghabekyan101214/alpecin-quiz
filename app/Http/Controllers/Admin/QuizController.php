@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreQuizRequest;
 use App\Models\Language;
 use App\Models\Quiz;
-use App\Models\QuizzesLanguage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class QuizController extends Controller
@@ -19,7 +17,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $data = Quiz::with('translations')->get();
+        $data = Quiz::with('translations', 'translations.language')->get();
         return view('admin.quizzes.index', compact('data'));
     }
 

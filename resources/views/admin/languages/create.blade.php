@@ -20,7 +20,7 @@
                         <div class="form-group row">
                             <label for="file" class="col-lg-3 col-form-label text-lg-right">Upload Language Icon:</label>
                             <div class="col-lg-6">
-                                <input type="file" id="file-input" name="icon" />
+                                <input type="file" accept="image/*" id="file-input" name="icon" />
                                 @error('icon')
                                 <div class="alert alert-danger mt-3">{{ $message }}</div>
                                 @enderror

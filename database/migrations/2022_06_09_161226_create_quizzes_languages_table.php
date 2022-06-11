@@ -22,7 +22,7 @@ class CreateQuizzesLanguagesTable extends Migration
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('restrict');
 
-            $table->string('name', 255)->unique();
+            $table->string('name', 255);
 
             $table->unique(['quiz_id', 'language_id']);
 

@@ -6,8 +6,6 @@ use App\Helpers\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LanguageStoreRequest;
 use App\Models\Language;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class LanguageController extends Controller
 {

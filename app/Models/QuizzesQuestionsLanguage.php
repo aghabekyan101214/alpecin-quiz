@@ -11,4 +11,9 @@ class QuizzesQuestionsLanguage extends Model
 
 
     protected $guarded = [];
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'language_id', 'id');
+    }
 }

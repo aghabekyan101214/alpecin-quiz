@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Models\Language;
 use App\Models\Quiz;
-use App\Models\QuizQuestion;
-use Illuminate\Http\Request;
+use App\Models\QuizzesQuestion;
+use http\Env\Request;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Question\Question;
 
-class QuizQuestionController extends Controller
+class QuizzesQuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +19,8 @@ class QuizQuestionController extends Controller
      */
     public function index()
     {
-        $data = QuizQuestion::with('translations')->get();
-        return view('admin.quizzess_questions.index', compact('data'));
+        $data = QuizzesQuestion::with('translations', 'translations.language')->orderBy('order')->get();
+        return view('admin.quizzes_questions.index', compact('data'));
     }
 
     /**
@@ -33,7 +32,7 @@ class QuizQuestionController extends Controller
     {
         $quizzes = Quiz::with('translations')->get();
         $languages = Language::all();
-        return view('admin.quizzess_questions.create', compact('quizzes', 'languages'));
+        return view('admin.quizzes_questions.create', compact('quizzes', 'languages'));
     }
 
     /**
@@ -44,9 +43,9 @@ class QuizQuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        $order = QuizQuestion::orderBy('id', 'desc')->first()?->order ?? 0;
+        $order = QuizzesQuestion::orderBy('id', 'desc')->first()?->order ?? 0;
         DB::beginTransaction();
-        $question = new QuizQuestion();
+        $question = new QuizzesQuestion();
         $question->order = $order + 1;
         $question->quiz_id = $request->quiz_id;
         $question->save();
@@ -61,10 +60,10 @@ class QuizQuestionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\QuizQuestion  $quizQuestion
+     * @param  \App\Models\QuizzesQuestion  $QuizzesQuestion
      * @return \Illuminate\Http\Response
      */
-    public function show(QuizQuestion $quizQuestion)
+    public function show(QuizzesQuestion $QuizzesQuestion)
     {
         //
     }
@@ -72,28 +71,28 @@ class QuizQuestionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QuizQuestion  $quizQuestion
+     * @param  \App\Models\QuizzesQuestion  $QuizzesQuestion
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $quizzes = Quiz::with('translations')->get();
         $languages = Language::all();
-        $data = QuizQuestion::findOrFail($id);
-        return view('admin.quizzess_questions.create', compact('quizzes', 'languages', 'data'));
+        $data = QuizzesQuestion::findOrFail($id);
+        return view('admin.quizzes_questions.create', compact('quizzes', 'languages', 'data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\QuizQuestion  $quizQuestion
+     * @param  \App\Models\QuizzesQuestion  $QuizzesQuestion
      * @return \Illuminate\Http\Response
      */
     public function update(StoreQuestionRequest $request, $id)
     {
         DB::beginTransaction();
-        $question = QuizQuestion::findOrFail($id);
+        $question = QuizzesQuestion::findOrFail($id);
         foreach ($request->data as $d) {
             if($question->translations()->where('language_id', $d["language_id"])->exists()) {
                 $question->translations()->where('language_id', $d["language_id"])->update($d);
@@ -110,13 +109,25 @@ class QuizQuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QuizQuestion  $quizQuestion
+     * @param  \App\Models\QuizzesQuestion  $QuizzesQuestion
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        QuizQuestion::findOrFail($id)->delete();
+        QuizzesQuestion::findOrFail($id)->delete();
         session()->flash('delete-message', 'Resource has been deleted successfully.');
         return redirect(route('admin.quizzes_questions.index'));
+    }
+
+    public function sort(\Illuminate\Http\Request $request)
+    {
+        try{
+            foreach($request->data as $d){
+                QuizzesQuestion::where("id", $d["id"])->update(["order" => $d["order"]]);
+            }
+            session()->flash('create-message', 'You have sorted questions successfully');
+        } catch (\Exception $e) {
+            session()->flash('create-message', 'Something went wrong while sorting the questions.');
+        }
     }
 }

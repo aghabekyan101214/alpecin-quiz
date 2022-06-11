@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QuizQuestionAnswer;
+use App\Models\QuizzesQuestionsAnswersLanguage;
 use Illuminate\Http\Request;
 
-class QuizQuestionAnswerController extends Controller
+class QuizzesQuestionsAnswersLanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class QuizQuestionAnswerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\QuizQuestionAnswer  $quizQuestionAnswer
+     * @param  \App\Models\QuizzesQuestionsAnswersLanguage  $quizzesQuestionsAnswersLanguage
      * @return \Illuminate\Http\Response
      */
-    public function show(QuizQuestionAnswer $quizQuestionAnswer)
+    public function show(QuizzesQuestionsAnswersLanguage $quizzesQuestionsAnswersLanguage)
     {
         //
     }
@@ -52,10 +52,10 @@ class QuizQuestionAnswerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QuizQuestionAnswer  $quizQuestionAnswer
+     * @param  \App\Models\QuizzesQuestionsAnswersLanguage  $quizzesQuestionsAnswersLanguage
      * @return \Illuminate\Http\Response
      */
-    public function edit(QuizQuestionAnswer $quizQuestionAnswer)
+    public function edit(QuizzesQuestionsAnswersLanguage $quizzesQuestionsAnswersLanguage)
     {
         //
     }
@@ -64,10 +64,10 @@ class QuizQuestionAnswerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\QuizQuestionAnswer  $quizQuestionAnswer
+     * @param  \App\Models\QuizzesQuestionsAnswersLanguage  $quizzesQuestionsAnswersLanguage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QuizQuestionAnswer $quizQuestionAnswer)
+    public function update(Request $request, QuizzesQuestionsAnswersLanguage $quizzesQuestionsAnswersLanguage)
     {
         //
     }
@@ -75,10 +75,10 @@ class QuizQuestionAnswerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QuizQuestionAnswer  $quizQuestionAnswer
+     * @param  \App\Models\QuizzesQuestionsAnswersLanguage  $quizzesQuestionsAnswersLanguage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QuizQuestionAnswer $quizQuestionAnswer)
+    public function destroy(QuizzesQuestionsAnswersLanguage $quizzesQuestionsAnswersLanguage)
     {
         //
     }

@@ -128,6 +128,13 @@
                             </a>
                         </li>
 
+                        <li class="kt-menu__item" aria-haspopup="true">
+                            <a href="{{ route('admin.quizzes_questions_answers.index') }}" class="kt-menu__link ">
+                                <i class="kt-menu__link-icon flaticon-mark"></i>
+                                <span class="kt-menu__link-text">Quizzes Questions Answers</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

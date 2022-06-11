@@ -20,5 +20,7 @@ Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", 
 
     Route::resource('quizzes', 'QuizController')->names('quizzes');
     Route::resource('languages', 'LanguageController')->names('languages');
-    Route::resource('quizzes-questions', 'QuizQuestionController')->names('quizzes_questions');
+    Route::resource('quizzes-questions', 'QuizzesQuestionController')->names('quizzes_questions');
+    Route::post('quizzes-questions-sort', 'QuizzesQuestionController@sort')->name('quizzes_questions_sor');
+    Route::resource('quizzes-questions-answers', 'QuizzesQuestionsAnswerController')->names('quizzes_questions_answers');
 });

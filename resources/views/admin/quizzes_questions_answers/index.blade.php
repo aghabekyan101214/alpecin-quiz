@@ -10,11 +10,11 @@
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head" style="align-items: center;">
                     <div class="kt-portlet__head-label">
-                        <h3 class="kt-portlet__head-title">Quizzes Questions</h3>
+                        <h3 class="kt-portlet__head-title">Quizzes Questions Answers</h3>
                     </div>
-                    <a href="{{ route('admin.quizzes_questions.create') }}" class="btn btn-outline-primary">
+                    <a href="{{ route('admin.quizzes_questions_answers.create') }}" class="btn btn-outline-primary">
                         <i class="la la-plus"></i>
-                        Add Question
+                        Add Question Answer
                     </a>
                 </div>
                 <div class="kt-portlet__body">
@@ -50,8 +50,8 @@
                     <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Order Number</th>
+                            <th>Question</th>
+                            <th>Answers</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -60,20 +60,26 @@
                                 <tr class="ui-state-default sorting-tr">
                                     <td>
                                         <ul>
-                                        @foreach($d->translations as $t)
-                                            <li>{{ $t->question }}</li>
+                                        @foreach($d->question->translations as $q)
+                                            <li>({{ $q->language->language_code }}) {{ $q->question }}</li>
                                         @endforeach
                                         </ul>
                                     </td>
-                                    <td>{{ $d->order }}</td>
+                                    <td>
+                                        <ul>
+                                            @foreach($d->translations as $t)
+                                                <li>({{ $t->language->language_code }}) {{ $t->answer }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                     <td nowrap>
                                         <span class="dropdown">
                                             <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md btn-req-change" data-toggle="dropdown" aria-expanded="true">
                                               <i class="la la-ellipsis-h"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{{ route('admin.quizzes_questions.edit', $d->id) }}">Edit</a>
-                                                <form method="post" action="{{ route('admin.quizzes_questions.destroy', $d->id) }}">
+                                                <a class="dropdown-item" href="{{ route('admin.quizzes_questions_answers.edit', $d->id) }}">Edit</a>
+                                                <form method="post" action="{{ route('admin.quizzes_questions_answers.destroy', $d->id) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="dropdown-item" style="padding: 0.7rem 1.2rem;">Delete</button>
