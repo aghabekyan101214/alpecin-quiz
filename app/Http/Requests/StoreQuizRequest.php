@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 
 class StoreQuizRequest extends FormRequest
 {
+    use ValidationErrorHelper;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -23,14 +24,6 @@ class StoreQuizRequest extends FormRequest
     private function get_quiz_language_query($name)
     {
         return QuizzesLanguage::where('name', $name);
-    }
-
-    private function throw_error($key, $err)
-    {
-        $error = \Illuminate\Validation\ValidationException::withMessages([
-            $key => $err
-        ]);
-        throw $error;
     }
 
     /**

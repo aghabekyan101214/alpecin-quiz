@@ -154,7 +154,6 @@ var KTSelect2 = function() {
 
         $('#my-kt_select2_1').select2({
             placeholder: "Select a Category*",
-            tags: true
         });
         $('#my-kt_select2_2').select2({
             placeholder: "Select Materials (multiple)*",

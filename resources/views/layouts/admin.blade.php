@@ -142,6 +142,13 @@
                             </a>
                         </li>
 
+                        <li class="kt-menu__item" aria-haspopup="true">
+                            <a href="{{ route('admin.combinations.index') }}" class="kt-menu__link ">
+                                <i class="kt-menu__link-icon flaticon2-circle-vol-2"></i>
+                                <span class="kt-menu__link-text">Combinations</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
