@@ -65,7 +65,7 @@
                                     <td>
                                         <ul>
                                         @foreach($d->translations as $t)
-                                            <li>({{ $t->language->language_code }}) {{ $t->question }}</li>
+                                            {{ $t->question }}
                                         @endforeach
                                         </ul>
                                     </td>

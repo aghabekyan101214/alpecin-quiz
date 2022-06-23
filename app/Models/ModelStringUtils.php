@@ -9,11 +9,11 @@ trait ModelStringUtils
 
     public function translations_string_ul($key='name')
     {
-        $str = '<ul>';
+        $str = '<ol>';
         foreach ($this->translations as $t) {
             $str .= "<li>"."(".$t->language->language_code.") ".$t->{$key}."</li>";
         }
-        $str .= "</ul>";
+        $str .= "</ol>";
         return $str;
     }
 
@@ -21,7 +21,7 @@ trait ModelStringUtils
     {
         $str = "";
         foreach ($this->translations as $t) {
-            $str .= "(".$t->language->language_code.") ".$t->{$key}." \n";
+            $str .= $t->{$key}." \n";
         }
         return $str;
     }

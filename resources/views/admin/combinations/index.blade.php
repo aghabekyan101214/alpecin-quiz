@@ -62,13 +62,12 @@
                                     <td>{{ $d->name }}</td>
                                     <td>
                                         @foreach($d->products as $p)
-                                            {!! $p->product->translations_string_ul() !!}
-                                            <hr>
+                                            {!! $p->product->translations_string() !!}
                                         @endforeach
                                     </td>
                                     <td>
                                         @foreach($d->answers as $a)
-                                            {!! $a->answer->translations_string_ul('answer') !!}
+                                            {!! $a->answer->translations_string('answer') !!}
                                             <hr>
                                         @endforeach
                                     </td>

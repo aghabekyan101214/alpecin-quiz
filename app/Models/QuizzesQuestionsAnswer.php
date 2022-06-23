@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\LocaleHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +12,9 @@ class QuizzesQuestionsAnswer extends Model
 
     public function translations()
     {
-        return $this->hasMany(QuizzesQuestionsAnswersLanguage::class, 'quizzes_questions_answers_id', 'id');
+        return $this->hasMany(QuizzesQuestionsAnswersLanguage::class, 'quizzes_questions_answers_id', 'id')->whereHas("language", function ($q) {
+            $q->where('language_code', LocaleHelper::get_current_locale());
+        });
     }
 
     public function question()

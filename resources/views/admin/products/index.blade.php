@@ -63,14 +63,14 @@
                                     <td>
                                         <ul>
                                         @foreach($d->translations as $q)
-                                            <li>({{ $q->language->language_code }}) {{ $q->name }}</li>
+                                            {{ $q->name }}
                                         @endforeach
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
                                             @foreach($d->translations as $t)
-                                                <li>({{ $t->language->language_code }}) {{ $t->description }}</li>
+                                                {{ $t->description }}
                                             @endforeach
                                         </ul>
                                     </td>
