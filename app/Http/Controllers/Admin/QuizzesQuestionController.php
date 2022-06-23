@@ -18,7 +18,7 @@ class QuizzesQuestionController extends Controller
      */
     public function index()
     {
-        $data = QuizzesQuestion::with('translations', 'translations.language')->orderBy('order')->get();
+        $data = QuizzesQuestion::with('current_language', 'translations.language')->orderBy('order')->get();
         return view('admin.quizzes_questions.index', compact('data'));
     }
 
@@ -29,7 +29,7 @@ class QuizzesQuestionController extends Controller
      */
     public function create()
     {
-        $quizzes = Quiz::with('translations')->get();
+        $quizzes = Quiz::with('current_language')->get();
         $languages = Language::all();
         return view('admin.quizzes_questions.create', compact('quizzes', 'languages'));
     }
@@ -75,7 +75,7 @@ class QuizzesQuestionController extends Controller
      */
     public function edit($id)
     {
-        $quizzes = Quiz::with('translations')->get();
+        $quizzes = Quiz::with('current_language')->get();
         $languages = Language::all();
         $data = QuizzesQuestion::findOrFail($id);
         return view('admin.quizzes_questions.create', compact('quizzes', 'languages', 'data'));

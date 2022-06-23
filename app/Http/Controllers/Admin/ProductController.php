@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::with('translations', 'translations.language')->get();
+        $data = Product::with('current_language', 'translations.language')->get();
         return view('admin.products.index', compact('data'));
     }
 

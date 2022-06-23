@@ -17,7 +17,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $data = Quiz::with('translations', 'translations.language')->get();
+        $data = Quiz::with('current_language', 'translations.language')->get();
         return view('admin.quizzes.index', compact('data'));
     }
 

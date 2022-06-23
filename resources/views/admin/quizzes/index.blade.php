@@ -59,7 +59,7 @@
                                 <tr class="ui-state-default sorting-tr">
                                     <td>
                                         <ul>
-                                        @foreach($d->translations as $t)
+                                        @foreach($d->current_language as $t)
                                             {{ $t->name }}
                                         @endforeach
                                         </ul>

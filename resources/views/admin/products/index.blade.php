@@ -62,14 +62,14 @@
                                     <td width="150"><img style="width: 100%" class="img-fluid" src="{{ asset('uploads/'.$d->image) }}" alt=""></td>
                                     <td>
                                         <ul>
-                                        @foreach($d->translations as $q)
+                                        @foreach($d->current_language as $q)
                                             {{ $q->name }}
                                         @endforeach
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
-                                            @foreach($d->translations as $t)
+                                            @foreach($d->current_language as $t)
                                                 {{ $t->description }}
                                             @endforeach
                                         </ul>

@@ -64,7 +64,7 @@
                                 <tr class="ui-state-default sorting-tr" data-question-id="{{ $d->id }}">
                                     <td>
                                         <ul>
-                                        @foreach($d->translations as $t)
+                                        @foreach($d->current_language as $t)
                                             {{ $t->question }}
                                         @endforeach
                                         </ul>

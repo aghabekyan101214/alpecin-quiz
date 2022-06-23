@@ -60,14 +60,14 @@
                                 <tr class="ui-state-default sorting-tr">
                                     <td>
                                         <ul>
-                                        @foreach($d->question->translations as $q)
+                                        @foreach($d->question->current_language as $q)
                                             {{ $q->question }}
                                         @endforeach
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
-                                            @foreach($d->translations as $t)
+                                            @foreach($d->current_language as $t)
                                                 {{ $t->answer }}
                                             @endforeach
                                         </ul>

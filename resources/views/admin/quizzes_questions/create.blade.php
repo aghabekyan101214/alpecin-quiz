@@ -24,7 +24,7 @@
                                         <option>Choose Quiz</option>
                                         @foreach($quizzes as $q)
                                             <option {{ isset($data) && $data->quiz_id == $q->id ? 'selected' : '' }} value="{{ $q->id }}">
-                                                @foreach($q->translations as $q)
+                                                @foreach($q->current_language as $q)
                                                     ({{ $q->name }})
                                                 @endforeach
                                             </option>

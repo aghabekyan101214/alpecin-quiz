@@ -12,7 +12,12 @@ class Quiz extends Model
 
     public function translations()
     {
-        return $this->hasMany(QuizzesLanguage::class, "quiz_id", "id")->whereHas("language", function ($q) {
+        return $this->hasMany(QuizzesLanguage::class, "quiz_id", "id");
+    }
+
+    public function current_language()
+    {
+        return $this->translations()->whereHas("language", function ($q) {
             $q->where('language_code', LocaleHelper::get_current_locale());
         });
     }
