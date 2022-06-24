@@ -27,3 +27,10 @@ Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", 
     Route::resource('combinations', 'QuizzesQuestionsAnswersCombinationController')->names('combinations');
     Route::resource('depending-questions', 'DependingQuestionController')->names('depending_questions');
 });
+
+
+Route::group(['namespace' => "App\Http\Controllers\Quiz", "as" => "quiz."], function() {
+    Route::get("/", function () {
+        return view("quiz.quiz");
+    });
+});
