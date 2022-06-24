@@ -4,7 +4,7 @@ var KTSelect2 = function() {
     var demos = function() {
         // basic
         $('#kt_select2_1, #kt_select2_1_validate').select2({
-            placeholder: "Select Category*"
+            placeholder: "Select Product*"
         });
 
         // nested
@@ -153,7 +153,7 @@ var KTSelect2 = function() {
 
 
         $('#my-kt_select2_1').select2({
-            placeholder: "Select a Category*",
+            placeholder: "Select a Product*",
         });
         $('#my-kt_select2_2').select2({
             placeholder: "Select Materials (multiple)*",

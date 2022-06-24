@@ -149,6 +149,13 @@
                             </a>
                         </li>
 
+                        <li class="kt-menu__item" aria-haspopup="true">
+                            <a href="{{ route('admin.depending_questions.index') }}" class="kt-menu__link ">
+                                <i class="kt-menu__link-icon flaticon2-circular-arrow"></i>
+                                <span class="kt-menu__link-text">Depending Questions</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

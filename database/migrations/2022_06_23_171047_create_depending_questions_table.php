@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('depending_questions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("answer_id");
+            $table->foreign("answer_id")->references("id")->on("quizzes_questions_answers")->onDelete("cascade");
+
+            $table->unsignedBigInteger("question_id");
+            $table->foreign("question_id")->references("id")->on("quizzes_questions")->onDelete("cascade");
             $table->timestamps();
         });
     }

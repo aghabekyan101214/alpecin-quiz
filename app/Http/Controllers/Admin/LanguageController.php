@@ -41,7 +41,7 @@ class LanguageController extends Controller
         $lang = new Language();
         $lang->language_code = $request->language_code;
         if(!is_null($request->icon)){
-            $image = FileUploadHelper::upload([$request->icon], ["jpg", "jpeg", "png"], "languages");
+            $image = FileUploadHelper::upload([$request->icon], ["jpg", "jpeg", "png", "svg"], "languages", "icon");
             $lang->icon = count($image) ? $image[0]['image'] : '';
         }
         $lang->save();

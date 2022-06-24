@@ -19,7 +19,7 @@ class FileUploadHelper
                 $images[]["image"] = $image;
             } else {
                 $validator = Validator::make([], []); // Empty data and rules fields
-                $validator->errors()->add($field_name, $image->getClientOriginalName() . " \n Wrong file is chosen, accepted file extensions are" . implode(', ', $allowedfileExtension));
+                $validator->errors()->add($field_name, $image->getClientOriginalName() . " \n Wrong file is chosen, accepted file extensions are " . implode(', ', $allowedfileExtension));
                 throw new ValidationException($validator);
             }
         }
