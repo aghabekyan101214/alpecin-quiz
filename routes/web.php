@@ -19,7 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", 
     Route::get('/', 'AdminController@index')->name('dashboard');
 
     Route::resource('quizzes', 'QuizController')->names('quizzes');
-    Route::resource('languages', 'LanguageController')->names('languages');
+//    Route::resource('languages', 'LanguageController')->names('languages');
     Route::resource('quizzes-questions', 'QuizzesQuestionController')->names('quizzes_questions');
     Route::post('quizzes-questions-sort', 'QuizzesQuestionController@sort')->name('quizzes_questions_sor');
     Route::resource('quizzes-questions-answers', 'QuizzesQuestionsAnswerController')->names('quizzes_questions_answers');
@@ -29,8 +29,6 @@ Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", 
 });
 
 
-Route::group(['namespace' => "App\Http\Controllers\Quiz", "as" => "quiz."], function() {
-    Route::get("/", function () {
-        return view("quiz.quiz");
-    });
+Route::group(['namespace' => "App\Http\Controllers\Client", "as" => "quiz.", 'prefix' => '{lang?}', 'middleware' => 'setlocale', 'where' => ['lang' => '[a-zA-Z]{2}']], function() {
+    Route::get("/", "QuizController@start")->name("start");
 });

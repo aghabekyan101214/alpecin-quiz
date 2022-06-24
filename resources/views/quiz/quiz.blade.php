@@ -39,7 +39,7 @@
                     </div>
                     <div class="row mt-5">
                         <div class="left_side_img d-none d-md-block col-md-4">
-                            <img src="{{ asset("quiz-assets/images/background/car.png") }}" alt="image-not-found">
+{{--                            <img src="{{ asset("quiz-assets/images/background/car.png") }}" alt="image-not-found">--}}
                         </div>
                         <div class="col-md-4">
                             <div class="form_items overflow-hidden">
