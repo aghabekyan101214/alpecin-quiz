@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('quizzes_users_feedback', function (Blueprint $table) {
             $table->id();
             $table->string("session_id", 100);
-            $table->unsignedBigInteger("product_id");
-            $table->foreign("product_id")->references("id")->on("products");
+            $table->unsignedBigInteger("combination_id");
+            $table->foreign("combination_id")->references("id")->on("quizzes_questions_answers_combinations")->onDelete("cascade");
             $table->timestamps();
         });
     }
