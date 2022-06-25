@@ -32,7 +32,7 @@ class DependingQuestionController extends Controller
     {
         $languages = Language::all();
         $questions = QuizzesQuestion::with('current_language')->get();
-        $answers = QuizzesQuestionsAnswer::with('current_language')->get();
+        $answers = QuizzesQuestionsAnswer::with('current_language', 'question')->get();
         return view('admin.depending-questions.create', compact('languages', 'questions', 'answers'));
     }
 

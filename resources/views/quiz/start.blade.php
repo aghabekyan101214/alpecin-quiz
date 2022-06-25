@@ -12,7 +12,8 @@
         </div>
         <!-- Circles which indicates the steps of the form: -->
         <div class="container">
-            <form class="multisteps_form" id="wizard" method="POST" action="../thankyou/index-2.html">
+            <form class="multisteps_form" id="wizard" method="POST" action="{{ route("quiz.start", ["lang" => app()->getLocale()]) }}">
+                @csrf
                 <!------------------------- Step-1 ----------------------------->
                 <div class="multisteps_form_panel">
                     <div class="content_box shadow text-center justify-content-center bg-white d-flex py-5 position-relative">
@@ -32,15 +33,14 @@
                     </div>
                 </div>
 
-            </form>
-            <!------------------------- Form button ----------------------------->
-            <div class="row pt-5 flex-column">
-                <div class="col-md-12 text-center">
+                <div class="row pt-5 flex-column">
+                    <div class="col-md-12 text-center">
 
-                    <button type="button" class="f_btn next_btn text-white text-uppercase mt-2" id="nextBtn"
-                            onclick="nextPrev(1)">{{ __("quiz.start") }}</button>
+                        <button class="f_btn next_btn text-white text-uppercase mt-2" id="nextBtn">{{ __("quiz.start") }}</button>
+                    </div>
                 </div>
-            </div>
+
+            </form>
         </div>
     </div>
 @endsection

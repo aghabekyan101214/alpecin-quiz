@@ -25,7 +25,7 @@
                                     <select name="answer_id" class="form-control">
                                         <option value="">Select Answer</option>
                                         @foreach($answers as $t)
-                                            <option {{ isset($data) && $data->answer_id == $t->id ? 'selected' : (old("answer_id") == $t->id ? 'selected' : '') }} value="{{ $t->id }}">{{ $t->translations_string('answer') }}</option>
+                                            <option {{ isset($data) && $data->answer_id == $t->id ? 'selected' : (old("answer_id") == $t->id ? 'selected' : '') }} value="{{ $t->id }}">{{ $t->question->translations_string('question') }} - {{ $t->translations_string('answer') }}</option>
                                         @endforeach
                                     </select>
                                     @error("answer_id")

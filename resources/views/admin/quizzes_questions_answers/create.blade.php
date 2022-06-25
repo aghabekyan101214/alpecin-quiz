@@ -30,7 +30,7 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    @error('quiz_id')
+                                    @error('quizzes_questions_id')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>

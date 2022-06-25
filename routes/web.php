@@ -29,6 +29,11 @@ Route::group(['prefix' => 'admin', 'namespace' => "App\Http\Controllers\Admin", 
 });
 
 
-Route::group(['namespace' => "App\Http\Controllers\Client", "as" => "quiz.", 'prefix' => '{lang?}', 'middleware' => 'setlocale', 'where' => ['lang' => '[a-zA-Z]{2}']], function() {
-    Route::get("/", "QuizController@start")->name("start");
+Route::group(['namespace' => "App\Http\Controllers\Client", 'prefix' => '{lang?}', 'middleware' => 'setlocale', 'where' => ['lang' => '[a-zA-Z]{2}']], function() {
+    Route::get("/", "QuizController@index")->name("index");
+    Route::group(["as" => "quiz.", "prefix" => "quiz"], function () {
+        Route::get("/{session_id}", "QuizController@get_question")->name("get_question");
+        Route::post("/start", "QuizController@start")->name("start");
+        Route::post("/answer-question", "QuizController@answer_question")->name("answer_question");
+    });
 });
