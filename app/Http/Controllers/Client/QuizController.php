@@ -9,8 +9,10 @@ use App\Models\DependingQuestion;
 use App\Models\Language;
 use App\Models\QuizzesQuestion;
 use App\Models\QuizzesUsedDependingQuestion;
+use App\Models\QuizzesUsersAnswer;
 use App\Models\QuizzesUsersState;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Question\Question;
 
 class QuizController
@@ -31,7 +33,9 @@ class QuizController
 
     public function answer_question(QuizAnswerQuestionRequest $request)
     {
+        DB::beginTransaction();
         $question = $this->get_question_by_session_id($request->session_id);
+        QuizzesUsersAnswer::create(["session_id" => $request->session_id, "question_id" => $request->question_id, "answer_id" => $request->answer_id]);
 
         $depending_question = $this->get_depending_questions($request->session_id, $request->answer_id);
 
@@ -45,11 +49,20 @@ class QuizController
         $next_question = QuizzesQuestion::whereNotIn("id", $dep_question_ids)->where('order', '>', $question->question->order)->first();
 
         if (is_null($next_question)) {
-            dd("quiz ended");
+            $this->handle_quiz_end();
         }
         $this->update_quiz_users_state($request->session_id, $next_question->id);
+        DB::commit();
         return redirect(route("quiz.get_question", ["lang" => app()->getLocale(), "session_id" => $request->session_id]));
 
+    }
+
+    private function handle_quiz_end($session_id)
+    {
+        QuizzesUsersState::where("session_id", $session_id)->delete();
+        QuizzesUsedDependingQuestion::where("session_id", $session_id)->delete();
+
+        dd("quiz ended");
     }
 
     private function update_quiz_users_state($session_id, $depending_question_id)
