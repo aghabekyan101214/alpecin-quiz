@@ -6,7 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/svg+xml" href="{{asset('images/admin-logo.png')}}">
-    <title>Studio Zard | Zard by Tio</title>
+    <title>Alpecin Quiz</title>
     @yield('styles')
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
