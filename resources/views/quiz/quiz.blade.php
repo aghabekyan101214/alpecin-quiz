@@ -10,8 +10,8 @@
         <!-- Top content -->
         <div class="container">
             <div class="logo_area pt-5">
-                <a href="index.html">
-                    <img src="{{ asset("quiz-assets/images/logo/logo.png") }}" alt="image-not-found">
+                <a href="/">
+                    <img style="width: 109px; height: 64px" src="{{ asset("quiz-assets/images/logo/Alpecin-Logo_RGB.svg") }}" alt="Alpecin logo">
                 </a>
             </div>
 {{--            <div class="step_progress">--}}

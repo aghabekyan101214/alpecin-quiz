@@ -12,10 +12,15 @@ Author      : jthemes (https://themeforest.net/user/jthemes)
 .wrapper {
   width: 100%;
   min-height: 100vh;
-  background-image: url("../images/background/bg_0.png"), url("../images/background/bg_1.png");
+  background-image: url("../images/background/quiz_bg_0.jpg"), url("../images/background/bg_1.png");
   background-repeat: no-repeat;
   background-position: center top -10%, center right;
   overflow: hidden;
+}
+
+.card-img-top {
+    height: 371px;
+    width: 371px;
 }
 
 .step_progress {
@@ -129,7 +134,7 @@ Author      : jthemes (https://themeforest.net/user/jthemes)
   display: none;
 }
 .form_items label.active {
-  border: 3px solid #33b236;
+  border: 3px solid #cd0c10;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
@@ -161,16 +166,20 @@ Author      : jthemes (https://themeforest.net/user/jthemes)
 
 .next_btn {
   margin-bottom: 2rem;
-  background: -webkit-gradient(linear, left top, right top, from(#fe6400), to(#ffae15));
-  background: linear-gradient(to right, #fe6400, #ffae15);
+  background: -webkit-gradient(linear, left top, right top, from(#cd0c10), to(#cd0c10));
+  background: linear-gradient(to right, #cd0c10, #ff8115);
+  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .next_btn:hover {
-  color: #000000 !important;
-  background: -webkit-gradient(linear, left top, right top, from(#ffae15), to(#fe6400));
-  background: linear-gradient(to right, #ffae15, #fe6400);
+  background: -webkit-gradient(linear, left top, right top, from(#cd0c10), to(#fe6400));
+  background: linear-gradient(to right, #ff8115, #cd0c10);
   -webkit-transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/*.next_btn {*/
+/*    background-color: #cd0c10;*/
+/*}*/
 
 body {
   font-weight: 400;
