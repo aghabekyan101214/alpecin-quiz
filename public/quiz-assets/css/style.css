@@ -18,6 +18,10 @@ Author      : jthemes (https://themeforest.net/user/jthemes)
   overflow: hidden;
 }
 
+.card-text{
+    font-size: 17px;
+}
+
 .card-img-top {
     height: 371px;
     width: 371px;

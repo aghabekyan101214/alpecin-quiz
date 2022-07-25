@@ -20,15 +20,15 @@ class LanguageTableSeeder extends Seeder
         $langs = [
             [
                 'language_code' => 'hy',
-                'icon' => 'quiz-assets/images/flags/flag_hy.png'
+                'icon' => 'quiz-assets/images/flags/armenia.svg'
             ],
             [
                 'language_code' => 'ru',
-                'icon' => 'quiz-assets/images/flags/flag_ru.png'
+                'icon' => 'quiz-assets/images/flags/russia.svg'
             ],
             [
                 'language_code' => 'en',
-                'icon' => 'quiz-assets/images/flags/flag_us.png'
+                'icon' => 'quiz-assets/images/flags/usa.svg'
             ],
         ];
         foreach ($langs as $l) {
