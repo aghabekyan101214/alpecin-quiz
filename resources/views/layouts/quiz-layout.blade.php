@@ -14,7 +14,7 @@
     <!-- Animate-css include -->
     <link rel="stylesheet" href="{{ asset("quiz-assets/css/animate.min.css") }}">
     <!-- Main-StyleSheet include -->
-    <link rel="stylesheet" href="{{ asset("quiz-assets/css/style.css?version=1.1") }}">
+    <link rel="stylesheet" href="{{ asset("quiz-assets/css/style.css?version=1.2") }}">
 </head>
 
 <body>
